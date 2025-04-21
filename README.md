@@ -1,5 +1,98 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## 開発環境のセットアップ
+
+### Node.jsとパッケージマネージャのインストール
+
+このプロジェクトを実行するには、Node.jsとパッケージマネージャ（npm, yarn, pnpm, bunのいずれか）が必要です。
+
+#### Node.js & npm のインストール
+
+Node.jsをインストールすると、npmも自動的にインストールされます。
+
+**macOS:**
+
+1. Homebrewを使用する方法（推奨）:
+   ```bash
+   # Homebrewがインストールされていない場合
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   
+   # Node.jsのインストール
+   brew install node
+   ```
+
+2. 公式インストーラーを使用する方法:
+   [Node.js公式サイト](https://nodejs.org/)からmacOS用インストーラーをダウンロードして実行
+
+**Windows:**
+
+1. 公式インストーラーを使用する方法:
+   [Node.js公式サイト](https://nodejs.org/)からWindows用インストーラーをダウンロードして実行
+
+2. chocolateyを使用する方法:
+   ```powershell
+   # 管理者権限のPowerShellで
+   choco install nodejs
+   ```
+
+#### 代替パッケージマネージャ
+
+npmの代わりに以下のパッケージマネージャも利用可能です：
+
+**Volta（macOS/Windows共通）:**
+```bash
+# macOS/Linuxの場合
+curl https://get.volta.sh | bash
+
+# Windowsの場合
+# https://docs.volta.sh/guide/getting-started からインストーラーをダウンロード
+```
+
+**nvm（Node Version Manager - macOS/Windows共通）:**
+```bash
+# macOS/Linuxの場合
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Windowsの場合
+# https://github.com/coreybutler/nvm-windows からインストーラーをダウンロード
+```
+
+**bun（macOS/Linux、WindowsはWSL経由）:**
+```bash
+# macOSの場合
+curl -fsSL https://bun.sh/install | bash
+
+# Windowsの場合はWSL2経由で使用
+```
+
+**yarn:**
+```bash
+npm install --global yarn
+```
+
+**pnpm:**
+```bash
+npm install --global pnpm
+```
+
+### 依存関係のインストール
+
+プロジェクトディレクトリで以下のコマンドを実行して、必要なパッケージをインストールします：
+
+```bash
+# npmを使用する場合
+npm install
+
+# yarnを使用する場合
+yarn
+
+# pnpmを使用する場合
+pnpm install
+
+# bunを使用する場合
+bun install
+```
+
 ## Getting Started
 
 First, run the development server:
