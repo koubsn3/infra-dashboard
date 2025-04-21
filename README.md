@@ -65,6 +65,53 @@ curl -fsSL https://bun.sh/install | bash
 # Windowsの場合はWSL2経由で使用
 ```
 
+**重要**: bunをインストールした後、環境変数の設定が必要です。インストール完了後、以下のメッセージが表示されます:
+
+```
+Added ~/.bun/bin to $PATH in ~/.zshrc
+To get started, run:
+  source ~/.zshrc
+  bun --help
+```
+
+シェルの設定ファイル（~/.zshrc、~/.bashrc、~/.bash_profileなど）に環境変数が追加されていますので、新しいシェルを開くか、以下のコマンドで現在のシェルに反映させてください:
+
+```bash
+# zshの場合
+source ~/.zshrc
+
+# bashの場合
+source ~/.bashrc
+```
+
+自動で環境変数が設定されなかった場合や、明示的に環境変数を設定する必要がある場合は、以下のコマンドを実行してください:
+
+```bash
+# zshの場合
+echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.zshrc
+echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+# bashの場合
+echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
+echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# fish シェルの場合
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH "$BUN_INSTALL/bin" $PATH
+```
+
+環境変数の設定を確認するには:
+
+```bash
+which bun
+# または
+echo $PATH
+```
+
+正しく設定されていれば、bunコマンドが利用可能になります。
+
 **yarn:**
 ```bash
 npm install --global yarn
@@ -93,37 +140,37 @@ pnpm install
 bun install
 ```
 
-## Getting Started
+## 始め方
 
-First, run the development server:
+まず、開発サーバーを起動します：
 
 ```bash
 npm run dev
-# or
+# または
 yarn dev
-# or
+# または
 pnpm dev
-# or
+# または
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、結果が表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`app/page.tsx` を編集することでページの編集を開始できます。ファイルを編集すると、ページは自動的に更新されます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+このプロジェクトでは [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) を使用して、Vercelの新しいフォントファミリーである [Geist](https://vercel.com/font) を自動的に最適化して読み込んでいます。
 
-## Learn More
+## もっと詳しく
 
-To learn more about Next.js, take a look at the following resources:
+Next.jsについてさらに学ぶには、以下のリソースをご覧ください：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.jsドキュメント](https://nextjs.org/docs) - Next.jsの機能やAPIについて学びます。
+- [Next.jsを学ぶ](https://nextjs.org/learn) - インタラクティブなNext.jsチュートリアルです。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[Next.jsのGitHubリポジトリ](https://github.com/vercel/next.js)もチェックできます - フィードバックや貢献を歓迎します！
 
-## Deploy on Vercel
+## Vercelへのデプロイ
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.jsアプリをデプロイする最も簡単な方法は、Next.jsの作成者による[Vercelプラットフォーム](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)を使用することです。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+詳細については[Next.jsのデプロイドキュメント](https://nextjs.org/docs/app/building-your-application/deploying)をご覧ください。
